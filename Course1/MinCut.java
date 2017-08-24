@@ -45,30 +45,27 @@ public class MinCut
         int u = edge[1];
         for (int i = 0; i < adjlist.get(u).size(); i++)
                 adjlist.get(v).add(adjlist.get(u).get(i));
-        // scan u's neighbor's list and replace u to v so that u can be eliminated
         ArrayList<Integer> uNeighbor = adjlist.get(u);
         for(int i = 0; i < uNeighbor.size(); i++)
         {
-            int n = uNeighbor.get(i);               // get neighbor's vertex 
-            ArrayList<Integer> nlist = adjlist.get(n);            // get neighbor's list
-            for (int j = 0; j < nlist.size(); j++)            // replace u to v
+            int n = uNeighbor.get(i);
+            ArrayList<Integer> nlist = adjlist.get(n);
+            for (int j = 0; j < nlist.size(); j++)
             {
                 if (nlist.get(j).equals(u))
                     nlist.set(j, v);       
             }
         }
-        // remove self loop in v's list
+       
         ArrayList<Integer> vNeighbor = adjlist.get(v);
         while (vNeighbor.remove((Object)v));
-
-        // remove u's list
         adjlist.remove(u);
         vertices.remove(vertices.indexOf(u));
     }
     public int[] pickEdge()
     {
         int ret[] = new int[2];
-        Random randomGenerator = new Random();                  //vertex 1 for edge pickup
+        Random randomGenerator = new Random();
         int vIndex = randomGenerator.nextInt(vertices.size() - 1);
         int v = vertices.get(vIndex);
         ArrayList<Integer> temp = adjlist.get(v);
@@ -78,7 +75,7 @@ public class MinCut
             v = vertices.get(vIndex);
             temp = adjlist.get(v);
         }
-        int uIndex = randomGenerator.nextInt(adjlist.get(v).size() - 1);        //vertex 2 for edge pickup
+        int uIndex = randomGenerator.nextInt(adjlist.get(v).size() - 1);
         int u =  adjlist.get(v).get(uIndex);
         ret[0]=v;
         ret[1]=u;
@@ -97,11 +94,11 @@ public class MinCut
             String line = rd.readLine();
             if (line == null) break;
             String[] linearr = line.split("\\s+");
-            verticesSave.add(Integer.valueOf(linearr[0]));                 // vertices_save :initial value of  0-199
-             ArrayList<Integer> neighbor = new ArrayList<Integer>();          // variable neighbour for the purpose of adding neighbour to adjency list.
+            verticesSave.add(Integer.valueOf(linearr[0]));                 
+             ArrayList<Integer> neighbor = new ArrayList<Integer>();
              for(int i = 1; i < linearr.length; i++)
                 neighbor.add(Integer.valueOf(linearr[i]));
-             adjlistSave.put(Integer.valueOf(linearr[0]), neighbor);              // combining for adjecent list creation
+             adjlistSave.put(Integer.valueOf(linearr[0]), neighbor);
         }	
     }
     public static void main(String[] args) throws IOException 
