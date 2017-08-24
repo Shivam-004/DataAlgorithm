@@ -6,7 +6,7 @@ public class BigClustering
     public int numNodes, numBits, numParts = 0;
     public HashMap<Integer, Nodes> mapCostNode;
     Queue<Nodes> queue;
-    public int[] arrayNodes;// can be removed
+    public int[] arrayNodes;
     int root;
     public BigClustering()throws Exception 
     {
@@ -43,7 +43,6 @@ public class BigClustering
                 queue.offer(nNode);
                 nNode.isInQueue = true;
                 union(root, nNode.getRoot());
-//				System.out.println(--remain);
             }
             for(int k = 0; k < numBits; k++)
             {
@@ -56,7 +55,6 @@ public class BigClustering
                     queue.offer(nNode);
                     nNode.isInQueue = true;
                     union(root, nNode.getRoot());
-//					System.out.println(--remain);
                 }
             }
         }
