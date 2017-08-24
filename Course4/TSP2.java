@@ -18,10 +18,7 @@ public class TSP2
         String sCurrentLine;
         BufferedReader br = new BufferedReader(new FileReader(FILENAME));
         while ((sCurrentLine = br.readLine()) != null) 
-        {
-            // System.out.println(sCurrentLine);
             str.append(sCurrentLine).append(" ");
-        }
         Scanner sc = new Scanner(str.toString());
         while (sc.hasNext()) 
         {
@@ -90,7 +87,7 @@ public class TSP2
         x=a[index][1]-a[index2][1];
         y=a[index][2]-a[index2][2];
         distance=sqrt((pow(x,2))+pow(y,2));
-       // System.out.println("distance:"+distance);
+        System.out.println("distance:"+distance);
         return distance;
     }    
 }
