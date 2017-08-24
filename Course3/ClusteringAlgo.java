@@ -64,7 +64,7 @@ public class ClusteringAlgo
             node2 = edge.node2;
         }
         while(mParent[node1] == mParent[node2]);
-        System.out.println(edge.cost);//
+        System.out.println(edge.cost);
     }
     public static class Edge
     {
