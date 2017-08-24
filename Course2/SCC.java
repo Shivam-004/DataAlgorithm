@@ -39,8 +39,8 @@ public class SCC
     public static Vertex[] graph = new Vertex[NUM];
     public static Vertex[] graphRev = new Vertex[NUM];
 
-    public int t = 0; // the number of vertices that have been fully explored
-    public Vertex leader = null; // the vertex from which the last DGS call was invoked
+    public int t = 0;
+    public Vertex leader = null;
     public static List<Integer> sizeList = new ArrayList<Integer>();
 	
     public void reverseGraph(Vertex[] graph)
@@ -87,14 +87,9 @@ public class SCC
                         n = 0;
                     }
                     else 
-                    {
-                            // advance n until we find an unexplored neighbor of vi 
                             n++;
-                    }
                 }
             }
-            // Bug fixed: have to pop to end the loop
-            // was included this part inside if clause 
             vi = stack.pop();
             t++;
             vi.fv = t;
@@ -151,7 +146,6 @@ public class SCC
 
     public void readFile(String str) throws IOException
     {
-        // initialize ArrayList<Vertex> vertices
         for(int i = 1; i <= NUM; i++)
         {
             Vertex v = new Vertex(i);
