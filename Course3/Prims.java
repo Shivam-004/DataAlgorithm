@@ -8,8 +8,8 @@ public class Prims
     private static HashMap<Integer, Boolean> marked;
     public static class Edge 
     {
-        private final int u; // one endpoint
-        private final int v; // other endpoint
+        private final int u;
+        private final int v;
         private final int cost;
         public Edge(int u, int v, int cost)
         {
@@ -35,7 +35,6 @@ public class Prims
         FileInputStream fstream = new FileInputStream("C:\\Users\\rambi\\Desktop\\edge.txt");
         DataInputStream in = new DataInputStream(fstream);
         BufferedReader br = new BufferedReader(new InputStreamReader(in));
-        // We know the first line is the number of vertices and edges
         String line = br.readLine();
         StringTokenizer lineTokens = new StringTokenizer(line);
         numVertices = Integer.parseInt(lineTokens.nextToken());
@@ -48,23 +47,18 @@ public class Prims
             int u = Integer.parseInt(lineTokens.nextToken());
             int v = Integer.parseInt(lineTokens.nextToken());
             int cost = Integer.parseInt(lineTokens.nextToken());
-
-            // Vertex numbers start from 0 instead of 1
             Edge e = new Edge((u - 1), (v - 1), cost);
             edges.add(e);
         }
-        // Initialize hash map
         marked = new HashMap<Integer, Boolean>();
         for (int i = 0; i < numVertices; i++)
         {
             marked.put(i, false);
         }
-        int sourceVertex = 0; // arbitrarily chosen
+        int sourceVertex = 0;
         marked.put(sourceVertex, true);
         int minimumCost;
         int totalCost = 0;
-
-        // Already added 1 vertex, to loop over one less
         for (int i = 0; i < (numVertices - 1); i++)
         {
             minimumCost = Integer.MAX_VALUE;
