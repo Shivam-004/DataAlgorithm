@@ -49,7 +49,6 @@ public class Knapsackbig
             int w = Integer.parseInt(line.split(" ")[1]);  
             items.add(new KnapsackPair(v,w));              
         }
-        // no need to [n][W+1] dimension array
         A = new int[2][W+1];  
         for(int x =0;x<W+1;x++)
             A[0][x] = 0;
@@ -63,7 +62,6 @@ public class Knapsackbig
                 else
                     A[1][x] = Math.max(A[j][x], A[j][x-items.get(i).weight]+items.get(i).value);
             }
-    //copy A[1] to A[0]  
             for(int k = 0; k<W+1;k++)  
                 A[0][k] = A[1][k];  
         }  
