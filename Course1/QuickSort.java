@@ -121,8 +121,5 @@ public class QuickSort
         QuickSort(arr,0,arr.length-1);
         System.out.println("Comparison: " + comparison); 
 
-        //1st 162085
-        //2nd 164123
-        //3rd 138382
     }
 }
