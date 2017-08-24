@@ -87,7 +87,7 @@ public class TSP2
         x=a[index][1]-a[index2][1];
         y=a[index][2]-a[index2][2];
         distance=sqrt((pow(x,2))+pow(y,2));
-        System.out.println("distance:"+distance);
+        //System.out.println("distance:"+distance);
         return distance;
     }    
 }
