@@ -10,10 +10,10 @@ public class MedianMaintenance
     public static class MaxHeap 
     {
         private ArrayList<Integer> A = new ArrayList<Integer>();
-        private int heapsize = 0; // actually, heapsize = A.size()-1 all the time in this class
+        private int heapsize = 0;
         public MaxHeap()
         {
-                A.add(0); // so the index start at 1
+                A.add(0); 
         }
         public int getSize()
         {
@@ -57,7 +57,7 @@ public class MedianMaintenance
         public int getMax()
         {
             if(heapsize < 1)
-                return Integer.MIN_VALUE; // heap underflow
+                return Integer.MIN_VALUE; 
             return A.get(1);
         }
         public int extractMax()
@@ -102,10 +102,9 @@ public class MedianMaintenance
     public static class MinHeap 
     {
         private ArrayList<Integer> A = new ArrayList<Integer>();
-        private int heapsize = 0;  // actually, heapsize = A.size()-1 all the time in this class
-        public MinHeap()
+        private int heapsize = 0;
         {
-            A.add(0); // so the index start at 1
+            A.add(0);
         }
         public int getSize()
         {
@@ -188,11 +187,7 @@ public class MedianMaintenance
         }
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /* maintain 2 heaps of similar length (difference <= 1): 
-     * left side: max heap -- for smaller numbers; right side: min heap -- for larger numbers; 
-     * thus median = maxHeap's max.
-     */
-    
+
     private static int findMedian(int input)
     {
         if(input < minHeap.getMin()) 
@@ -207,8 +202,8 @@ public class MedianMaintenance
     }
     public static void main(String[] args)throws Exception
     {
-        int median = 0; // median for each streaming input
-        int sumMedian = 0; // sum of the median
+        int median = 0; 
+        int sumMedian = 0;
         BufferedReader rd = new BufferedReader(new FileReader("C:\\Users\\rambi\\Desktop\\Median.txt"));
         while(true)
         {
