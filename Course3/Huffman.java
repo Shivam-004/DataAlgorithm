@@ -42,8 +42,8 @@ public class Huffman
                 1 + (node1.minLength < node2.minLength ? node1.minLength : node2.minLength));
             queue.offer(newNode);
         }
-        System.out.println("maxLength: " + node1.maxLength);// 
-        System.out.println("minLength: " + node1.minLength);// 
+        System.out.println("maxLength: " + node1.maxLength);
+        System.out.println("minLength: " + node1.minLength);
     }
     public static void main(String[] args) throws Exception
     {
