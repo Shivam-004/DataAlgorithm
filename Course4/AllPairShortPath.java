@@ -17,7 +17,7 @@ public class AllPairShortPath
             BufferedReader b = new BufferedReader(new InputStreamReader(d));
             n = Integer.parseInt(b.readLine().split(" ")[0]);
             graph = new int [n][n];
-            A = new int[n][n][2];//we dont need of size [n][n][k] because at any point we refer to k and k-1 only 
+            A = new int[n][n][2];
             for (int i = 0; i < n; i++)
                 for (int j =0; j < n; j++)
                     if (i==j) 
